@@ -11,7 +11,7 @@ const scraper = new Trending.Scraper();
 let repoDetails = [];
 
 let msgDefaults = {
-  channel: '#general'
+  channel: '#trana'
 };
 
 scraper.scrapeTrendingReposFullInfo('javascript')
