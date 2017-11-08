@@ -7,7 +7,7 @@ bot.configureIncomingWebhook({ url: process.env.WEBHOOK_URL});
 
 console.log(process.env.WEBHOOK_URL);
 
-const msg = 'Hello from heroku';
+const msg = '{"text":"Hello from heroku"}';
 
 bot.sendWebhook(msg, (err, res) => {
   if (err) console.log(err.message);
