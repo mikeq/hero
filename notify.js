@@ -5,6 +5,8 @@ const bot = controller.spawn();
 
 bot.configureIncomingWebhook({ url: process.env.WEBHOOK_URL});
 
+console.log(process.env.WEBHOOK_URL);
+
 const msg = 'Hello from heroku';
 
 bot.sendWebhook(msg, (err, res) => {
