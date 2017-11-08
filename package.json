@@ -1,9 +1,21 @@
 {
+  "name": "hero",
+  "description": "Hero test application",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": {
+    "email": "mike@velochallenge.org",
+    "name": "Mike Quinn"
+  },
   "dependencies": {
     "express": "^4.16.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1"
-  }
+  },
+  "license": "MIT"
 }
