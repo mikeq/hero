@@ -27,9 +27,7 @@ scraper.scrapeTrendingReposFullInfo('javascript')
     let msg = _.defaults({ attachments: repoDetails }, msgDefaults );
 
     bot.sendWebhook(msg, (err, resp) => {
-      if (err) console.log(err.message);
+      if (err) console.log(err);
     })
   }
 );
-
-

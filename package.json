@@ -1,6 +1,6 @@
 {
   "name": "hero",
-  "description": "Hero test application",
+  "description": "JS trending on github",
   "version": "1.0.0",
   "main": "trend.js",
   "scripts": {
@@ -12,13 +12,9 @@
   },
   "dependencies": {
     "botkit": "^0.6.6",
-    "express": "^4.16.2",
     "github-trend": "^0.1.1",
     "lodash": "^4.17.4"
   },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1"
-  },
+  "devDependencies": {},
   "license": "MIT"
 }
