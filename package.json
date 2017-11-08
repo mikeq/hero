@@ -14,7 +14,8 @@
   "dependencies": {
     "botkit": "^0.6.6",
     "express": "^4.16.2",
-    "github-trend": "^0.1.1"
+    "github-trend": "^0.1.1",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
