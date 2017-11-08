@@ -2,10 +2,8 @@
   "name": "hero",
   "description": "Hero test application",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "trend.js",
   "scripts": {
-    "start": "node index.js",
-    "notify": "node notify.js",
     "trend": "node trend.js"
   },
   "author": {
