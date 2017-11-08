@@ -5,11 +5,10 @@ const bot = controller.spawn();
 
 bot.configureIncomingWebhook({ url: process.env.WEBHOOK_URL});
 
-console.log(process.env.WEBHOOK_URL);
-
-const msg = '{"text":"Hello from heroku"}';
-
-bot.sendWebhook(msg, (err, res) => {
+bot.sendWebhook({
+  text: 'Hello from Heroku',
+  channel: '#general',
+}, (err, res) => {
   if (err) console.log(err.message);
 
   console.log("Message delivered");
