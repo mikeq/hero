@@ -11,17 +11,18 @@ const scraper = new Trending.Scraper();
 let repoDetails = [];
 
 let msgDefaults = {
-  channel: '#trana'
 };
+
+const formatMessage = repo => ({
+  title: `${repo.owner}/${repo.name}`,
+  title_link: `https://github.com/${repo.owner}/${repo.name}`,
+  text: `${repo.description}\nToday's stars: ${repo.todaysStars} total: ${repo.allStars}`,
+  mrkdwn_in: ['text', 'pretext'],
+});
 
 scraper.scrapeTrendingReposFullInfo('javascript')
 .then(repos => {
-    repoDetails = repos.slice(0, 10).map(repo => ({
-      title: `${repo.owner}/${repo.name}`,
-      title_link: `https://github.com/${repo.owner}/${repo.name}`,
-      text: `${repo.description}\nTodays stars: ${repo.todaysStars}`,
-      mrkdwn_in: ['text', 'pretext'],
-    }));
+    repoDetails = repos.slice(0, 10).map(formatMessage);
 
     let msg = _.defaults({ attachments: repoDetails }, msgDefaults );
 
