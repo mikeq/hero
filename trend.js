@@ -23,7 +23,7 @@ const formatMessage = repo => ({
 
 scraper.scrapeTrendingReposFullInfo('javascript')
 .then(repos => {
-    let repoDetails = repos.slice(0, 10).map(formatMessage);
+    let repoDetails = repos.slice(0, 5).map(formatMessage);
 
     let msg = { attachments: repoDetails, ...msgDefaults };
     bot.sendWebhook(msg, (err, resp) => {
