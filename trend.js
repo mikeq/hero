@@ -1,6 +1,5 @@
 const Trending = require('github-trend');
 const Botkit = require('botkit');
-const _ = require('lodash');
 
 const controller = Botkit.slackbot({});
 const bot = controller.spawn();
@@ -8,24 +7,25 @@ const bot = controller.spawn();
 bot.configureIncomingWebhook({ url: process.env.WEBHOOK_URL});
 
 const scraper = new Trending.Scraper();
-let repoDetails = [];
 
 let msgDefaults = {
+  response_type: 'in_channel'
 };
 
 const formatMessage = repo => ({
+  falback: `${repo.description}`,
   title: `${repo.owner}/${repo.name}`,
   title_link: `https://github.com/${repo.owner}/${repo.name}`,
-  text: `${repo.description}\nToday's stars: ${repo.todaysStars} total: ${repo.allStars}`,
-  mrkdwn_in: ['text', 'pretext'],
+  text: `_${repo.description}_\nToday's :star: ${repo.todaysStars.toLocaleString()}`,
+  footer: `Total stars: ${repo.allStars.toLocaleString()}`,
+  mrkdwn_in: ['text'],
 });
 
 scraper.scrapeTrendingReposFullInfo('javascript')
 .then(repos => {
-    repoDetails = repos.slice(0, 10).map(formatMessage);
+    let repoDetails = repos.slice(0, 10).map(formatMessage);
 
-    let msg = _.defaults({ attachments: repoDetails }, msgDefaults );
-
+    let msg = { attachments: repoDetails, ...msgDefaults };
     bot.sendWebhook(msg, (err, resp) => {
       if (err) console.log(err);
     })

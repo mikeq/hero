@@ -16,5 +16,8 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {},
+  "engines": {
+    "node": "9.0.0"
+  },
   "license": "MIT"
 }
